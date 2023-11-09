@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div>
-      <FormattedMessage id="app_greeting" />
+      <FormattedMessage id="app_home_title" />
     </div>
   );
 };
