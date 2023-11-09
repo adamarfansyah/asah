@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
 
-import { login } from '@pages/Login/actions';
+import { login } from '@domain/api';
 
 import classes from './style.module.scss';
 
@@ -39,9 +39,7 @@ const Login = () => {
             </div>
             <input type="password" className={classes.input} />
           </div>
-          <button type="submit" className={classes.btn_ctn}>
-            Continue
-          </button>
+          <button type="submit">Continue</button>
         </form>
       </div>
     </div>
