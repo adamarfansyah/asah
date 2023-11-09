@@ -2,4 +2,32 @@
 
 .categories {
   position: sticky;
+  top: 70px;
+  z-index: 1;
+  height: fit-content;
+  width: 450px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.3);
+  background-color: $thirdColor;
+  .title {
+    font-weight: 400;
+  }
+  .categoriesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    .category {
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background-color: rgb(232, 232, 232);
+      transition: 0.3s;
+      &:hover {
+        background-color: $primaryColor;
+        color: $thirdColor;
+      }
+    }
+  }
 }

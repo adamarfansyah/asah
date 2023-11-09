@@ -6,4 +6,5 @@ export default {
 
   app_header_home: 'Temukan berita, pemikiran, dan keahlian dari para penulis tentang topik apa pun.',
   app_new_news: 'Berita terbaru dari kami',
+  app_head_categories: 'Temukan lebih banyak hal yang penting bagi Anda',
 };
