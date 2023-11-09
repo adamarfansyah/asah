@@ -3,19 +3,26 @@ import { useDispatch } from 'react-redux';
 
 import { login } from '@pages/Login/actions';
 
+import { useState } from 'react';
 import classes from './style.module.scss';
 
 const Login = () => {
   const dispatch = useDispatch();
-  const userInfo = {
-    email: 'user@gmail.com',
-    password: 'password',
+  const [inputForm, setInputForm] = useState({
+    email: '',
+    password: '',
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
+
   const handleSubmitLogin = (e) => {
     e.preventDefault();
-    if (userInfo) {
-      dispatch(login(userInfo));
-    }
+    dispatch(login(inputForm));
   };
   return (
     <div className={classes.wrapper}>
@@ -29,18 +36,18 @@ const Login = () => {
         <form action="" onSubmit={handleSubmitLogin} className={classes.form}>
           <div className={classes.inputWrap}>
             <div className={classes.inputTitle}>
-              <FormattedMessage id="app_title_email_form_login" />
+              <FormattedMessage id="app_title_email_form" />
             </div>
-            <input type="email" className={classes.input} />
+            <input name="email" onChange={handleChange} type="email" className={classes.input} />
           </div>
           <div className={classes.inputWrap}>
             <div className={classes.inputTitle}>
-              <FormattedMessage id="app_title_password_form_login" />
+              <FormattedMessage id="app_title_password_form" />
             </div>
-            <input type="password" className={classes.input} />
+            <input type="password" name="password" onChange={handleChange} className={classes.input} />
           </div>
           <button type="submit" className={classes.btn_ctn}>
-            Continue
+            <FormattedMessage id="app_title_button_confirm_login_register" />
           </button>
         </form>
       </div>
