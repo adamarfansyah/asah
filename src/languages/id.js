@@ -7,4 +7,7 @@ export default {
   app_popup_error_title: 'Terjadi kesalahan!',
   app_popup_error_message: 'Maaf, telah terjadi kesalahan. Silakan coba beberapa saat lagi',
   app_popup_close_button_label: 'Tutup',
+  app_head_title_login: 'Masuk',
+  app_title_email_form_login: 'Email Kamu',
+  app_title_password_form_login: 'Kata Sandi Kamu',
 };
