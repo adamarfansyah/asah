@@ -23,6 +23,9 @@ const storedReducers = {
 const temporaryReducers = {
   language: languageReducer,
   newsCategory: newsCategoryReducer,
+  home: homeReducer,
+  newsDetail: detailReducer,
+  createEmployee: createEmployeeReducer,
 };
 
 const createReducer = () => {

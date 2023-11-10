@@ -48,6 +48,7 @@
       .hidden {
         display: none;
       }
+      gap: 1rem;
       .theme {
         @include directionX;
         align-items: center;
@@ -64,6 +65,9 @@
           height: 1.2rem;
           box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
           margin-right: 0.5rem;
+          @include screen('small') {
+            display: none;
+          }
         }
 
         .lang {
