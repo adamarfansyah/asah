@@ -10,14 +10,14 @@ const InputRHF = ({ input, register, errors, classes }) => (
       className={`${classes?.input} ${errors[input?.name] && classes?.inputError}`}
       {...register(input?.name, {
         required: input?.required,
-        pattern: { value: new RegExp(input?.pattern), message: input.messagePatern },
+        pattern: { value: new RegExp(input?.pattern), message: input?.messagePatern },
         minLength: {
-          value: input.minLength,
-          message: input.messageMin,
+          value: input?.minLength,
+          message: input?.messageMin,
         },
       })}
       type={input?.type}
-      defaultValue={input.value}
+      defaultValue={input?.value}
     />
     {errors[input?.name] && <span className={classes?.inputLabelError}>{errors[input?.name].message}</span>}
   </FormControl>

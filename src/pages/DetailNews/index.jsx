@@ -21,7 +21,7 @@ const DetailNews = ({ newsDetail, isLoading, user }) => {
   }, [dispatch, newsId]);
 
   const goToUpdate = () => {
-    navigate(`/news/update/${newsDetail.id}`);
+    navigate(`/news/edit/${newsDetail.id}`);
   };
 
   if (isLoading) return <h1>Loading....</h1>;
