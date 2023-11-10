@@ -36,7 +36,6 @@ export function* doEditNews({ data }) {
     const response = yield call(editNews, data.id, data);
     toast.success(`Edit news Successfully, with title : ${response?.title}`);
   } catch (error) {
-    console.log(error);
     toast.error(`Edit news error : ${error.message}`);
   }
   yield put(setLoading(false));
