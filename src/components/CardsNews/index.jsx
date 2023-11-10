@@ -8,7 +8,7 @@ import classes from './style.module.scss';
 
 const CardsNews = ({ payload }) => {
   const [value, setValue] = useState('');
-  const filteredCardList = filter(payload, (card) => card.title.includes(value.toLowerCase()));
+  const filteredCardList = filter(payload, (card) => card.title.toLowerCase().includes(value));
   const cardList = filteredCardList?.reverse().map((card) => <CardNews key={card.id} news={card} />);
 
   return (
