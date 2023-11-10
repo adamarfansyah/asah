@@ -141,7 +141,7 @@ const FormNews = ({ news, newsDetail, user, dataCategory, intl: { formatMessage 
               control={control}
               name="category"
               rules={{ required: formatMessage({ id: 'app_form_news_category' }) }}
-              defaultValue={news ? news?.category : ''}
+              defaultValue={news ? news?.category : newsDetail ? newsDetail?.category : ''}
               render={({ field: { onChange, value } }) => (
                 <Select
                   onChange={onChange}
