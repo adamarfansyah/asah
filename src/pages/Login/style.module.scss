@@ -6,15 +6,23 @@
   @include directionX;
   justify-content: center;
   align-items: center;
+  @include screen('small') {
+    padding: 0 2rem;
+    width: auto;
+  }
   .wrapperContent {
     width: 600px;
-    height: 60%;
+    height: max-content;
     margin: auto;
     background-color: white;
     box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.15);
     @include directionY;
     justify-content: center;
     align-items: center;
+    padding: 6rem 0;
+    @include screen('small') {
+      padding: 2rem 0;
+    }
     .titleText {
       font-size: 24px;
       font-weight: 500;
@@ -25,6 +33,10 @@
       max-width: 60%;
       margin: 2rem auto 0 auto;
       text-align: center;
+      @include screen('small') {
+        max-width: 80%;
+        font-size: 14px;
+      }
     }
     .form {
       margin-top: 3rem;
@@ -47,9 +59,17 @@
           outline: none;
           border: none;
           border-bottom: 1px solid #000;
-          width: 35%;
+          width: 40%;
           text-align: center;
           font-size: 16px;
+          @include screen('small') {
+            width: 60%;
+          }
+        }
+        .errorInput {
+          font-size: 10px;
+          color: red;
+          font-weight: normal;
         }
       }
       .btn_ctn {
@@ -63,6 +83,10 @@
         @include directionX;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        @include screen('small') {
+          height: 28px;
+        }
       }
     }
   }

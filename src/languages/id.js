@@ -2,11 +2,16 @@ export default {
   app_popup_error_title: 'Terjadi kesalahan!',
   app_popup_error_message: 'Maaf, telah terjadi kesalahan. Silakan coba beberapa saat lagi',
   app_popup_close_button_label: 'Tutup',
+  app_popup_ok_button_label: 'Oke',
   app_title_home: 'Selamat Datang',
   app_title_sign_in: 'Selamat Datang Kembali',
   app_lang_id: 'Bahasa',
   app_lang_en: 'English',
+  app_popup_logout_title: 'Apakah kamu yakin ingin keluar?',
+  app_popup_logout_message: 'Jika kamu keluar, kamu harus masuk kembali lagi!',
+  app_error_message_email: 'Masukkan email yang benar',
 
+  app_error_message_minLenght_password: 'Minimal panjang password 8 huruf',
   app_header_home: 'Temukan berita, pemikiran, dan keahlian dari para penulis tentang topik apa pun.',
   app_new_news: 'Berita terbaru dari kami',
   app_head_categories: 'Temukan lebih banyak hal yang penting bagi Anda',
@@ -19,5 +24,5 @@ export default {
   app_sub_title_login:
     'Masukkan alamat email dan password yang terkait dengan akun Anda, dan kami akan mengirimkan tautan ajaib ke kotak masuk Anda.',
   app_title_button_confirm_login_register: 'Lanjutkan',
-  app_title_button_back_to_home: 'Kembali Ke Beranda',
+  app_title_button_back_to_home: 'Kembali',
 };

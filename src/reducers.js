@@ -13,13 +13,13 @@ import { mapWithPersistor } from './persistence';
 const storedReducers = {
   app: { reducer: appReducer, whitelist: storedAppState },
   client: { reducer: clientReducer, whitelist: storedClientState },
-  createEmployee: { reducer: createEmployeeReducer },
 };
 
 const temporaryReducers = {
   language: languageReducer,
   home: homeReducer,
   newsDetail: detailReducer,
+  createEmployee: createEmployeeReducer,
 };
 
 const createReducer = () => {
