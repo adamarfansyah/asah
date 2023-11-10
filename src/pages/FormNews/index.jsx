@@ -49,13 +49,13 @@ const FormNews = ({ news, newsDetail, user, dataCategory, intl: { formatMessage 
         desc: '',
       });
     }
-    if (id && parseInt(news?.employeId) != parseInt(user?.id)) {
+    if (id && news && parseInt(news?.employeId) != parseInt(user?.id)) {
       toast.error(formatMessage({ id: 'app_form_news_error_user_unauthorize' }));
       setTimeout(() => {
-        navigate(-1);
+        navigate('/');
       }, 1500);
     }
-  }, [id]);
+  }, [id, news]);
 
   const onSubmit = (data) => {
     if (id) {
@@ -82,7 +82,7 @@ const FormNews = ({ news, newsDetail, user, dataCategory, intl: { formatMessage 
     }
     setTimeout(() => {
       dispatch(resetNews());
-      navigate(-1);
+      navigate('/');
     }, 1500);
   };
 
@@ -90,7 +90,7 @@ const FormNews = ({ news, newsDetail, user, dataCategory, intl: { formatMessage 
     dispatch(deleteNews(news?.id));
     setTimeout(() => {
       dispatch(resetNews());
-      navigate(-1);
+      navigate('/');
     }, 1500);
   };
   return (
