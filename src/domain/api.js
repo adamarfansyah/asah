@@ -35,6 +35,8 @@ export const login = (data) => callAPI(`${urls.user}?email=${data?.email}`, 'GET
 export const getNewsApi = () => callAPI(`${urls.news}`, 'GET');
 export const getNewsByIdApi = (id) => callAPI(`${urls.news}/${id}`, 'GET');
 export const getCategoriesApi = () => callAPI(`${urls.categories}`, 'GET');
+export const getNewsByCategoryApi = (categoryName) => callAPI(`${urls.news}?category=${categoryName}`);
+export const getCategoryByNameApi = (categoryName) => callAPI(`${urls.categories}?category=${categoryName}`);
 export const createEmployee = (data) => callAPI(urls.user, 'POST', {}, {}, data);
 export const addNews = (data) => callAPI(urls.news, 'POST', {}, {}, data);
 export const editNews = (id, data) => callAPI(`${urls.news}/${id}`, 'PUT', {}, {}, data);

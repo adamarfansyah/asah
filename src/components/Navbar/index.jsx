@@ -21,6 +21,7 @@ const Navbar = ({ title, locale, user }) => {
   const navigate = useNavigate();
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
+  const url = window.location.pathname === '/login';
 
   const handleClick = (event) => {
     setMenuPosition(event.currentTarget);
@@ -40,6 +41,11 @@ const Navbar = ({ title, locale, user }) => {
   const goHome = () => {
     navigate('/');
   };
+
+  const goLogin = () => {
+    navigate('/login');
+  };
+
   const handleLogout = () => {
     dispatch(showPopup('app_popup_logout_title', 'app_popup_logout_message', 'logout'));
   };
@@ -59,6 +65,9 @@ const Navbar = ({ title, locale, user }) => {
           <div className={classes.title}>{title}</div>
         </div>
         <div className={classes.toolbar}>
+          <div className={url ? classes.hidden : classes.getStarted} onClick={goLogin}>
+            <FormattedMessage id="app_before_login" />
+          </div>
           {user ? (
             <Tooltip title="Account settings">
               <IconButton

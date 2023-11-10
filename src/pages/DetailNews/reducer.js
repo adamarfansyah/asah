@@ -8,6 +8,8 @@ export const initialState = {
   newsDetail: {},
 };
 
+export const storedKey = ['newsDetail'];
+
 const detailReducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {

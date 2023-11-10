@@ -24,6 +24,10 @@ export default {
   app_sub_title_login:
     'Masukkan alamat email dan password yang terkait dengan akun Anda, dan kami akan mengirimkan tautan ajaib ke kotak masuk Anda.',
   app_title_button_confirm_login_register: 'Lanjutkan',
+
+  app_before_login: 'Memulai',
+
+  app_search_not_found: 'Maaf berita tidak ditemukan',
   app_title_button_back_to_home: 'Kembali',
 
   app_back_button: 'Kembali',

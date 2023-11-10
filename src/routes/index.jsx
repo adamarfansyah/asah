@@ -5,6 +5,7 @@ import Home from '@pages/Home';
 import NotFound from '@pages/NotFound';
 import Login from '@pages/Login';
 import CreateEmployee from '@pages/CreateEmployee';
+import Category from '@pages/Category';
 import FormNews from '@pages/FormNews';
 
 const routes = [
@@ -20,6 +21,13 @@ const routes = [
     name: 'DetailNews',
     protected: false,
     component: DetailNews,
+    layout: MainLayout,
+  },
+  {
+    path: '/category/:categoryName',
+    name: 'Category',
+    protected: false,
+    component: Category,
     layout: MainLayout,
   },
   {

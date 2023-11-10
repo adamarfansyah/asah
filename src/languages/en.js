@@ -26,6 +26,9 @@ export default {
   app_title_button_confirm_login_register: 'Continue',
   app_title_button_back_to_home: 'Back ',
 
+  app_before_login: 'Get Started',
+
+  app_search_not_found: 'Sorry news not found',
   app_back_button: 'Back',
   app_head_title_form_news_add: 'Add News to Page',
   app_form_news_error_user_unauthorize: 'User Unauthorize, Login with author user',
