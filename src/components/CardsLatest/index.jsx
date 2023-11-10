@@ -5,7 +5,7 @@ import classes from './style.module.scss';
 
 const CardsLatest = ({ payload }) => {
   const cardsFiltered = payload?.slice(0, 3);
-  const cardLatestList = cardsFiltered.map((news) => <CardLatest key={news.id} news={news} />);
+  const cardLatestList = cardsFiltered?.reverse().map((news) => <CardLatest key={news.id} news={news} />);
 
   return (
     <div className={classes.container}>

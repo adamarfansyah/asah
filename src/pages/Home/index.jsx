@@ -16,8 +16,7 @@ const Home = ({ news, categories, isLoading }) => {
 
   useEffect(() => {
     dispatch(getNewsAction());
-
-    if (categories.length < 0) {
+    if (categories?.length === 0) {
       dispatch(getCategoriesAction());
     }
   }, []);

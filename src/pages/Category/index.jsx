@@ -10,7 +10,7 @@ import { getCategoryAction, getNewsCategoryAction } from './actions';
 import { selectCategories, selectCategory, selectIsLoading, selectNewsCategory } from './selectors';
 import classes from './style.module.scss';
 
-const Category = ({ newsCategory, categories, category = [], isLoading }) => {
+const Category = ({ newsCategory, categories, category, isLoading }) => {
   const dispatch = useDispatch();
   const { categoryName } = useParams();
   const categoryData = category[0];
