@@ -38,7 +38,7 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
 
   useEffect(() => {
     dispatch(getCategoriesAction());
-    if (id && news?.employeId != user?.id) {
+    if ((id && news?.employeId != user?.id) || user?.role === 'admin') {
       toast.error(formatMessage({ id: 'app_form_news_error_user_unauthorize' }));
       setTimeout(() => {
         navigate(-1);
@@ -65,7 +65,7 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
           id: news?.id,
           created_at: news?.created_at,
           updated_date: new Date().toISOString(),
-          employeId: user?.id,
+          employeId: parseInt(user?.id),
           author: user?.fullName,
         })
       );
