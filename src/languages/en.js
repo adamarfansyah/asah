@@ -4,6 +4,12 @@ export default {
   app_popup_close_button_label: 'Close',
   app_title_home: 'Welcome',
   app_title_sign_in: 'Welcome Back',
+  app_lang_id: 'Bahasa',
+  app_lang_en: 'English',
+
+  app_header_home: 'Find news, thoughts and expertise from writers on any topic.',
+  app_new_news: 'Latest news from us',
+  app_head_categories: 'Discover more of what matters to you',
   app_head_title_login: 'Sign In',
   app_head_title_register: 'Create Employee',
   app_title_email_form: 'Your Email',

@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 
 import appReducer, { storedKey as storedAppState } from '@containers/App/reducer';
 import clientReducer, { storedKey as storedClientState } from '@containers/Client/reducer';
+import homeReducer from '@pages/Home/reducer';
+import detailReducer from '@pages/DetailNews/reducer';
 import languageReducer from '@containers/Language/reducer';
 
 import createEmployeeReducer from '@pages/CreateEmployee/reducer';
@@ -16,6 +18,8 @@ const storedReducers = {
 
 const temporaryReducers = {
   language: languageReducer,
+  home: homeReducer,
+  newsDetail: detailReducer,
 };
 
 const createReducer = () => {

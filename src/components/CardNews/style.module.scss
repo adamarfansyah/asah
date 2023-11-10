@@ -1,0 +1,23 @@
+@import '@styles/base';
+
+.cardNews {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  .author {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .image {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+  }
+}

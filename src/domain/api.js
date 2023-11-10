@@ -6,6 +6,8 @@ import request from '@utils/request';
 const urls = {
   ping: 'ping.json',
   user: '/user',
+  news: '/news',
+  categories: '/categories',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -30,4 +32,7 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 
 export const ping = () => callAPI(urls.ping, 'get');
 export const login = (data) => callAPI(`${urls.user}?email=${data?.email}`, 'GET');
+export const getNewsApi = () => callAPI(`${urls.news}`, 'GET');
+export const getNewsByIdApi = (id) => callAPI(`${urls.news}/${id}`, 'GET');
+export const getCategoriesApi = () => callAPI(`${urls.categories}`, 'GET');
 export const createEmployee = (data) => callAPI(urls.user, 'POST', {}, {}, data);
