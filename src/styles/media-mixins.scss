@@ -11,7 +11,11 @@ $screen-1024-limit: 1024px;
 @mixin screen($size, $type: max, $pixels: $screen-sm-limit) {
   @if $size == 'small' {
     @media screen and (#{$type}-width: $screen-sm-limit) {
-      @content
+      @content;
+    }
+  } @else if $size == 'medium' {
+    @media screen and (#{$type}-width: $screen-md-limit) {
+      @content;
     }
   }
 }

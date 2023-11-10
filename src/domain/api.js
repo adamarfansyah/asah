@@ -38,3 +38,7 @@ export const getCategoriesApi = () => callAPI(`${urls.categories}`, 'GET');
 export const getNewsByCategoryApi = (categoryName) => callAPI(`${urls.news}?category=${categoryName}`);
 export const getCategoryByNameApi = (categoryName) => callAPI(`${urls.categories}?category=${categoryName}`);
 export const createEmployee = (data) => callAPI(urls.user, 'POST', {}, {}, data);
+export const addNews = (data) => callAPI(urls.news, 'POST', {}, {}, data);
+export const editNews = (id, data) => callAPI(`${urls.news}/${id}`, 'PUT', {}, {}, data);
+export const deleteNews = (id) => callAPI(`${urls.news}/${id}`, 'DELETE');
+export const getNewsById = (id) => callAPI(`${urls.news}/${id}`, 'GET');

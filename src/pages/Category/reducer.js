@@ -13,7 +13,7 @@ export const initialState = {
   isLoading: false,
   isError: '',
   newsCategory: [],
-  category: {},
+  category: [],
 };
 
 const newsCategoryReducer = (state = initialState, action) =>

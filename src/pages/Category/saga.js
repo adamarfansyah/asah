@@ -1,13 +1,13 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
 import { getCategoryByNameApi, getNewsByCategoryApi } from '@domain/api';
+import { GET_CATEGORY_INIT, GET_NEWS_CATEGORY_INIT } from './constants';
 import {
   getCategoryFailureAction,
   getCategorySuccessAction,
   getNewsCategoryFailureAction,
   getNewsCategorySuccessAction,
 } from './actions';
-import { GET_CATEGORY_INIT, GET_NEWS_CATEGORY_INIT } from './constants';
 
 function* doGetNewsCategory({ categoryName }) {
   try {
