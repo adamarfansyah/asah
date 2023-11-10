@@ -92,6 +92,17 @@
       "created_at": "2023-11-10T02:49:30.516Z",
       "update_by": "",
       "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "title": "Adam Sake",
+      "image": "https://plus.unsplash.com/premium_photo-1699292639215-6f34ff51daec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "category": "Software Developments",
+      "desc": "<p>adam </p>",
+      "created_at": "2023-11-10T09:29:07.282Z",
+      "updated_date": "2023-11-10T09:29:07.282Z",
+      "employeId": "3",
+      "author": "Adam Sake Arfansyah",
+      "id": 8
     }
   ],
   "categories": [
