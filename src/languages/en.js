@@ -34,6 +34,7 @@ export default {
   app_form_news_error_user_unauthorize: 'User Unauthorize, Login with author user',
   app_head_title_form_news_edit: 'Edit News',
   app_form_news_img_url_error_msg: 'Image URL is Required',
+  app_form_news_img_url_error_msg_pattern: 'Invalid Image Url Format',
   app_form_news_title: 'Title',
   app_form_news_title_error_msg: 'Title is required',
   app_button_create_news: 'Create News',

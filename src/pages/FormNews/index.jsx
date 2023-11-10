@@ -4,24 +4,23 @@ import ReactQuill from 'react-quill';
 import { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { MenuItem, Select, Button, IconButton } from '@mui/material';
 import { ArrowBackIosNew, Delete } from '@mui/icons-material';
+import { MenuItem, Select, Button, IconButton, FormControl } from '@mui/material';
 
 import { getCategoriesAction } from '@pages/Home/actions';
 import { addNews, deleteNews, editNews, getNewsById, resetNews, setNewsById } from '@pages/FormNews/actions';
 import { selectCategories, selectNews, selectUser } from '@pages/FormNews/selector';
 import { selectNewsDetail } from '@pages/DetailNews/selectors';
 
-import ControllerRHF from '@components/ContainerRHF';
 import InputRHF from '@components/InputRHF';
 
 import classes from '@pages/FormNews/style.module.scss';
 import 'react-quill/dist/quill.snow.css';
 
-const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
+const FormNews = ({ news, newsDetail, user, dataCategory, intl: { formatMessage } }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,14 +37,9 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
 
   useEffect(() => {
     dispatch(getCategoriesAction());
-    if ((id && news?.employeId != user?.id) || user?.role === 'admin') {
-      toast.error(formatMessage({ id: 'app_form_news_error_user_unauthorize' }));
-      setTimeout(() => {
-        navigate(-1);
-      }, 1500);
-    } else if (id) {
+    if (id) {
       setIsCreatePage(false);
-      newsDetail ? dispatch(setNewsById(newsDetail)) : dispatch(getNewsById(id));
+      newsDetail?.id ? dispatch(setNewsById(newsDetail)) : dispatch(getNewsById(id));
     } else {
       setIsCreatePage(true);
       reset({
@@ -54,6 +48,12 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
         category: '',
         desc: '',
       });
+    }
+    if (id && parseInt(news?.employeId) != parseInt(user?.id)) {
+      toast.error(formatMessage({ id: 'app_form_news_error_user_unauthorize' }));
+      setTimeout(() => {
+        navigate(-1);
+      }, 1500);
     }
   }, [id]);
 
@@ -75,7 +75,7 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
           ...data,
           created_at: new Date().toISOString(),
           updated_date: new Date().toISOString(),
-          employeId: user?.id,
+          employeId: parseInt(user?.id),
           author: user?.fullName,
         })
       );
@@ -108,7 +108,6 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
             input={{
               name: 'title',
               required: formatMessage({ id: 'app_form_news_title_error_msg' }),
-              pattern: false,
               type: 'text',
               label: formatMessage({ id: 'app_form_news_title' }),
               value: news?.title,
@@ -122,64 +121,68 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
             input={{
               name: 'image',
               required: formatMessage({ id: 'app_form_news_img_url_error_msg' }),
-              pattern: false,
               type: 'text',
               label: formatMessage({ id: 'app_form_news_img_url' }),
               value: news?.image,
+              pattern:
+                '(https://www.|http://www.|https://|http://)?[a-zA-Z0-9]{2,}(.[a-zA-Z0-9]{2,})(.[a-zA-Z0-9]{2,})?/[a-zA-Z0-9]{2,}',
+              messagePatern: formatMessage({ id: 'app_form_news_img_url_error_msg_pattern' }),
             }}
             register={register}
             classes={classes}
             errors={errors}
           />
 
-          <ControllerRHF
-            input={{
-              label: formatMessage({ id: 'app_form_news_category' }),
-              name: 'category',
-              required: formatMessage({ id: 'app_form_news_category_error' }),
-              defaultValue: news ? news?.category : '',
-            }}
-            classes={classes}
-            control={control}
-            errors={errors}
-            render={({ field: { onChange, value } }) => (
-              <Select
-                onChange={onChange}
-                defaultValue=""
-                value={value}
-                label={formatMessage({ id: 'app_form_news_category' })}
-                error={errors['category'] != undefined}
-                displayEmpty
-                className={classes.inputSelect}
-              >
-                <MenuItem value={null} disabled>
-                  <FormattedMessage id="app_form_news_category_select_default" />
-                </MenuItem>
-                {dataCategory.map((val, key) => (
-                  <MenuItem value={val.category} key={key}>
-                    {val.category}
+          <FormControl variant="standard">
+            <label htmlFor="category" className={classes.inputLabel}>
+              <FormattedMessage id="app_form_news_category" />
+            </label>
+            <Controller
+              control={control}
+              name="category"
+              rules={{ required: formatMessage({ id: 'app_form_news_category' }) }}
+              defaultValue={news ? news?.category : ''}
+              render={({ field: { onChange, value } }) => (
+                <Select
+                  onChange={onChange}
+                  defaultValue=""
+                  value={value}
+                  label={formatMessage({ id: 'app_form_news_category' })}
+                  error={errors['category'] != undefined}
+                  displayEmpty
+                  className={classes.inputSelect}
+                >
+                  <MenuItem value={null} disabled>
+                    <FormattedMessage id="app_form_news_category_select_default" />
                   </MenuItem>
-                ))}
-              </Select>
-            )}
-          />
+                  {dataCategory.map((val, key) => (
+                    <MenuItem value={val.category} key={key}>
+                      {val.category}
+                    </MenuItem>
+                  ))}
+                </Select>
+              )}
+            />
+            {errors['category'] && <span className={classes.inputLabelError}>{errors['category'].message}</span>}
+          </FormControl>
 
-          <ControllerRHF
-            input={{
-              label: formatMessage({ id: 'app_form_news_description' }),
-              name: 'desc',
-              required: formatMessage({ id: 'app_form_news_description_error' }),
-              defaultValue: news?.desc,
-            }}
-            classes={classes}
-            control={control}
-            errors={errors}
-            render={({ field: { onChange, value } }) => (
-              <div className={classes.quillContainer}>
-                <ReactQuill className={classes.quill} value={value} onChange={onChange} />
-              </div>
-            )}
-          />
+          <FormControl variant="standard">
+            <label htmlFor="desc" className={classes.inputLabel}>
+              <FormattedMessage id="app_form_news_description" />
+            </label>
+            <Controller
+              control={control}
+              name="desc"
+              rules={{ required: formatMessage({ id: 'app_form_news_description_error' }) }}
+              defaultValue={news ? news?.desc : ''}
+              render={({ field: { onChange, value } }) => (
+                <div className={classes.quillContainer}>
+                  <ReactQuill className={classes.quill} value={value} onChange={onChange} />
+                </div>
+              )}
+            />
+            {errors['desc'] && <span className={classes.inputLabelError}>{errors['desc'].message}</span>}
+          </FormControl>
 
           <button type="submit" className={classes.buttonSubmit}>
             {isCreatePage ? (
@@ -201,6 +204,7 @@ const FormNews = ({ news, user, dataCategory, intl: { formatMessage } }) => {
         >
           <FormattedMessage id="app_back_button" />
         </Button>
+
         {!isCreatePage && (
           <IconButton className={classes.deleteButton} onClick={onDelete}>
             <Delete fontSize="inherit" />

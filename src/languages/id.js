@@ -32,9 +32,10 @@ export default {
 
   app_back_button: 'Kembali',
   app_head_title_form_news_add: 'Tambah Berita',
-  app_form_news_error_user_unauthorize: 'USer tidak Diizinkan, silahkan login dengan pemilik berita',
+  app_form_news_error_user_unauthorize: 'User tidak Diizinkan, silahkan login dengan pemilik berita',
   app_head_title_form_news_edit: 'Ubah Berita',
   app_form_news_img_url_error_msg: 'URL gambar diperlukan',
+  app_form_news_img_url_error_msg_pattern: 'Format URL gambar tidak sesuai',
   app_form_news_title: 'Judul',
   app_form_news_title_error_msg: 'Judul diperlukan',
   app_button_create_news: 'Tambah Berita',
