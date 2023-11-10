@@ -7,12 +7,15 @@ import detailReducer from '@pages/DetailNews/reducer';
 import languageReducer from '@containers/Language/reducer';
 
 import createEmployeeReducer from '@pages/CreateEmployee/reducer';
+import formNewsReducer, { storedKey as storedFormNewsState } from '@pages/FormNews/reducer';
 
 import { mapWithPersistor } from './persistence';
 
 const storedReducers = {
   app: { reducer: appReducer, whitelist: storedAppState },
   client: { reducer: clientReducer, whitelist: storedClientState },
+  createEmployee: { reducer: createEmployeeReducer },
+  formNews: { reducer: formNewsReducer, whitelist: storedFormNewsState },
 };
 
 const temporaryReducers = {

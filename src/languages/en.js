@@ -24,5 +24,20 @@ export default {
   app_sub_title_login:
     "Enter the email address and password associated with your account, and we'll send a magic link to your inbox.",
   app_title_button_confirm_login_register: 'Continue',
-  app_title_button_back_to_home: 'Back',
+  app_title_button_back_to_home: 'Back ',
+
+  app_back_button: 'Back',
+  app_head_title_form_news_add: 'Add News to Page',
+  app_form_news_error_user_unauthorize: 'User Unauthorize, Login with author user',
+  app_head_title_form_news_edit: 'Edit News',
+  app_form_news_img_url_error_msg: 'Image URL is Required',
+  app_form_news_title: 'Title',
+  app_form_news_title_error_msg: 'Title is required',
+  app_button_create_news: 'Create News',
+  app_form_news_img_url: 'Image URL',
+  app_form_news_category: 'Category',
+  app_form_news_category_select_default: 'Select Category',
+  app_form_news_category_error: 'Category is required',
+  app_form_news_description: 'Description',
+  app_form_news_description_error: 'Description is required',
 };
