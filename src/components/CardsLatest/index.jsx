@@ -4,7 +4,8 @@ import CardLatest from '@components/CardLatest';
 import classes from './style.module.scss';
 
 const CardsLatest = ({ payload }) => {
-  const cardLatestList = payload?.map((news) => <CardLatest news={news} />);
+  const cardsFiltered = payload?.slice(0, 3);
+  const cardLatestList = cardsFiltered.map((news) => <CardLatest news={news} />);
 
   return (
     <div className={classes.container}>

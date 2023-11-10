@@ -1,5 +1,7 @@
-const prefix = '@@news';
+export const GET_NEWS_INIT = `Home/GET_NEWS_INIT`;
+export const GET_NEWS_SUCCESS = `Home/GET_NEWS_SUCCESS`;
+export const GET_NEWS_FAILURE = `Home/GET_NEWS_FAILURE`;
 
-export const SET_NEWS_INIT = `${prefix}/NEWS_INIT`;
-export const SET_NEWS_SUCCESS = `${prefix}/SET_NEWS_SUCCESS`;
-export const SET_NEWS_FAILURE = `${prefix}/SET_NEWS_FAILURE`;
+export const GET_CATEGORIES_INIT = `Home/GET_CATEGORIES_INIT`;
+export const GET_CATEGORIES_SUCCESS = `Home/GET_CATEGORIES_SUCCESS`;
+export const GET_CATEGORIES_FAILURE = `Home/GET_CATEGORIES_FAILURE`;

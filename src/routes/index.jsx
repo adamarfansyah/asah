@@ -3,6 +3,7 @@ import DetailNews from '@pages/DetailNews';
 
 import Home from '@pages/Home';
 import NotFound from '@pages/NotFound';
+import Login from '@pages/Login';
 
 const routes = [
   {
@@ -18,6 +19,12 @@ const routes = [
     protected: false,
     component: DetailNews,
     layout: MainLayout,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    protected: false,
+    component: Login,
   },
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
 ];

@@ -1,15 +1,36 @@
-import { SET_NEWS_FAILURE, SET_NEWS_INIT, SET_NEWS_SUCCESS } from './constants';
+import {
+  GET_CATEGORIES_FAILURE,
+  GET_CATEGORIES_INIT,
+  GET_CATEGORIES_SUCCESS,
+  GET_NEWS_FAILURE,
+  GET_NEWS_INIT,
+  GET_NEWS_SUCCESS,
+} from './constants';
 
-export const setNewsAction = () => ({
-  type: SET_NEWS_INIT,
+export const getNewsAction = () => ({
+  type: GET_NEWS_INIT,
 });
 
-export const setNewsSuccessAction = (news) => ({
-  type: SET_NEWS_SUCCESS,
+export const getNewsSuccessAction = (news) => ({
+  type: GET_NEWS_SUCCESS,
   news,
 });
 
-export const setNewsFailureAction = (error) => ({
-  type: SET_NEWS_FAILURE,
+export const getNewsFailureAction = (error) => ({
+  type: GET_NEWS_FAILURE,
+  error,
+});
+
+export const getCategoriesAction = () => ({
+  type: GET_CATEGORIES_INIT,
+});
+
+export const getCategoriesSuccessAction = (categories) => ({
+  type: GET_CATEGORIES_SUCCESS,
+  categories,
+});
+
+export const getCategoriesFailureAction = (error) => ({
+  type: GET_CATEGORIES_FAILURE,
   error,
 });
