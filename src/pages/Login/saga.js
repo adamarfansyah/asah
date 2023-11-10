@@ -14,6 +14,7 @@ export function* doLogin({ data }) {
     const response = yield call(login, data);
     if (Object.keys(response).length === 0) {
       toast.error('User not found');
+      return;
     }
     if (response[0].password === data?.password) {
       const { password, ...userInfo } = response[0];
@@ -21,7 +22,8 @@ export function* doLogin({ data }) {
       yield put(setLogin(true));
       window.location.href = '/';
     } else {
-      return toast.error('Invalid credential');
+      toast.error('Invalid credential');
+      return;
     }
   } catch (error) {
     toast.error('Login error', error.message);

@@ -30,3 +30,4 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 
 export const ping = () => callAPI(urls.ping, 'get');
 export const login = (data) => callAPI(`${urls.user}?email=${data?.email}`, 'GET');
+export const createEmployee = (data) => callAPI(urls.user, 'POST', {}, {}, data);
