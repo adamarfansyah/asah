@@ -65,9 +65,12 @@ const Navbar = ({ title, locale, user }) => {
           <div className={classes.title}>{title}</div>
         </div>
         <div className={classes.toolbar}>
-          <div className={url ? classes.hidden : classes.getStarted} onClick={goLogin}>
-            <FormattedMessage id="app_before_login" />
-          </div>
+          {!user ? (
+            <div className={url ? classes.hidden : classes.getStarted} onClick={goLogin}>
+              <FormattedMessage id="app_before_login" />
+            </div>
+          ) : null}
+
           {user ? (
             <Tooltip title="Account settings">
               <IconButton
