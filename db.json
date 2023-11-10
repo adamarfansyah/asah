@@ -1,0 +1,119 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "fullName": "Admin",
+      "email": "admin@gmail.com",
+      "password": "passwordadmin",
+      "role": "88798679823"
+    },
+    {
+      "password": "asdasdasd",
+      "role": "0393786336",
+      "fullName": "asdsa",
+      "email": "asdasd@gmail.com",
+      "id": 2
+    },
+    {
+      "password": "adamganteng",
+      "role": "0393786336",
+      "fullName": "Adam Sake Arfansyah",
+      "email": "adamsake@test.co",
+      "id": 3
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "title": "test",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "Software Developments",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 2,
+      "title": "test",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "Sports",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 3,
+      "title": "test",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "Sports",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 4,
+      "title": "test",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "E-Sports",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 5,
+      "title": "test",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "E-Sports",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 6,
+      "title": "test",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "Politics",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 7,
+      "title": "adam news",
+      "desc": "<div>ehehehehhehe</div>",
+      "author": "Adam Sake A",
+      "category": "Politics",
+      "created_at": "2023-11-10T02:49:30.516Z",
+      "update_by": "",
+      "image": "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category": "Sports",
+      "desc": "Exercise isn't just about physical appearance, it's also about discovering strengths within yourself that you never knew you had."
+    },
+    {
+      "id": 2,
+      "category": "E-Sports",
+      "desc": "A game may only last a few minutes, but the effort and dedication you invest in understanding the strategy and tactics is what makes the difference."
+    },
+    {
+      "id": 3,
+      "category": "Politics",
+      "desc": "Politics is the art of looking for problems, finding them everywhere, diagnosing them wrongly, and applying the wrong solutions. - Groucho Marx"
+    },
+    {
+      "id": 4,
+      "category": "Software Developments",
+      "desc": "In the digital world, every bug is a challenge to solve. Your tenacity is key to navigating this ever-evolving landscape."
+    }
+  ]
+}

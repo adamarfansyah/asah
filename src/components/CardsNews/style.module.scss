@@ -1,0 +1,26 @@
+@import '@styles/base';
+
+.cardsNews {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  width: 50%;
+  margin: 0 0 100px 100px;
+  @include screen(small) {
+    margin-left: 0;
+    width: 100%;
+  }
+  .input {
+    border: 1px solid gray;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    &:focus {
+      border: 2px solid $primaryColor;
+      outline: none;
+    }
+  }
+  .notFound {
+    padding: 20px;
+  }
+}

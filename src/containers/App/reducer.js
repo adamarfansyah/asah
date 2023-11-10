@@ -9,6 +9,7 @@ export const initialState = {
     open: false,
     title: '',
     message: '',
+    ok: '',
   },
   loading: false,
 };

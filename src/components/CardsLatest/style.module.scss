@@ -1,0 +1,24 @@
+@import '@styles/base';
+
+.container {
+  padding: 100px;
+  @include screen(small) {
+    padding: 50px 20px;
+  }
+  .title {
+    font-weight: 700;
+    color: $secondaryColor;
+    margin-bottom: 20px;
+  }
+  .cardsLatest {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 50px;
+    @include screen(small) {
+      display: flex;
+      flex-direction: column;
+      padding: 0px;
+    }
+  }
+}
