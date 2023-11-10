@@ -1,0 +1,23 @@
+@import '@styles/base';
+
+.newsCategory {
+  margin: 100px 0;
+  .wrapper {
+    padding: 0 100px;
+    @include screen(small) {
+      padding: 50px 20px;
+    }
+    margin-bottom: 40px;
+    .title {
+      font-size: 36px;
+      font-weight: 700;
+    }
+  }
+  .body {
+    display: flex;
+    gap: 20px;
+    @include screen(small) {
+      flex-direction: column-reverse;
+    }
+  }
+}

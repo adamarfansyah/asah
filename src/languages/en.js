@@ -20,4 +20,8 @@ export default {
     "Enter the email address and password associated with your account, and we'll send a magic link to your inbox.",
   app_title_button_confirm_login_register: 'Continue',
   app_title_button_back_to_home: 'Back To Home',
+
+  app_before_login: 'Get Started',
+
+  app_search_not_found: 'Sorry news not found',
 };

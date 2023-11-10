@@ -16,6 +16,8 @@ export const initialState = {
   categories: [],
 };
 
+export const storedKey = ['categories'];
+
 const homeReducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {

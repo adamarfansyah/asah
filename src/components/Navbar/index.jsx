@@ -17,6 +17,7 @@ const Navbar = ({ title, locale }) => {
   const navigate = useNavigate();
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
+  const url = window.location.pathname === '/login';
 
   const handleClick = (event) => {
     setMenuPosition(event.currentTarget);
@@ -37,6 +38,10 @@ const Navbar = ({ title, locale }) => {
     navigate('/');
   };
 
+  const goLogin = () => {
+    navigate('/login');
+  };
+
   return (
     <div className={classes.headerWrapper} data-testid="navbar">
       <div className={classes.contentWrapper}>
@@ -45,6 +50,9 @@ const Navbar = ({ title, locale }) => {
           <div className={classes.title}>{title}</div>
         </div>
         <div className={classes.toolbar}>
+          <div className={url ? classes.hidden : classes.getStarted} onClick={goLogin}>
+            <FormattedMessage id="app_before_login" />
+          </div>
           <div className={classes.toggle} onClick={handleClick}>
             <Avatar className={classes.avatar} src={locale === 'id' ? '/id.png' : '/en.png'} />
             <div className={classes.lang}>{locale}</div>
@@ -77,7 +85,6 @@ const Navbar = ({ title, locale }) => {
 Navbar.propTypes = {
   title: PropTypes.string,
   locale: PropTypes.string.isRequired,
-  theme: PropTypes.string,
 };
 
 export default Navbar;

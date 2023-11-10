@@ -22,9 +22,13 @@
       width: 100%;
     }
   }
+
   .body {
     display: flex;
     flex-direction: row;
+    @include screen(small) {
+      flex-direction: column-reverse;
+    }
     gap: 20px;
   }
 }

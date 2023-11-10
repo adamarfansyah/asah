@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { useNavigate } from 'react-router-dom';
 import classes from './style.module.scss';
 
 const Categories = ({ payload }) => {
+  const navigate = useNavigate();
   const categoryList = payload.map((item) => (
-    <div key={item.id} className={classes.category}>
+    <div key={item.id} className={classes.category} onClick={() => navigate(`/category/${item.category}`)}>
       {item.category}
     </div>
   ));

@@ -15,7 +15,11 @@ const Home = ({ news, categories, isLoading }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Promise.all([dispatch(getNewsAction()), dispatch(getCategoriesAction())]);
+    dispatch(getNewsAction());
+
+    if (categories.length < 0) {
+      dispatch(getCategoriesAction());
+    }
   }, []);
 
   return (
