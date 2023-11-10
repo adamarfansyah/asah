@@ -1,114 +1,141 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import toast from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 
-import { selectSuccess, selectUser } from '@pages/CreateEmployee/selectors';
+import config from '@config/index';
+
+import { selectSuccess } from '@pages/CreateEmployee/selectors';
 import { createEmployee, setReset } from '@pages/CreateEmployee/actions';
+
+import { selectUser } from '@containers/Client/selectors';
+
+import InputRHF from '@components/InputRHF';
 
 import classes from './style.module.scss';
 
 const CreateEmployee = ({ user, isSuccess }) => {
   const dispatch = useDispatch();
-  const [inputForm, setInputForm] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const intl = useIntl();
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    getValues,
+    formState: { errors },
+  } = useForm();
   const validateUser = () => {
     let result = true;
-    if (user?.role !== 'admin') {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (user?.role !== config.role.admin) {
       toast.error('You Are Not an admin');
+      result = false;
+    }
+    if (getValues().password !== getValues().confirmPassword) {
+      toast.error('Password and confirm password must be same');
+      result = false;
+    }
+    if (!emailRegex.test(getValues().email)) {
+      toast.error(intl.formatMessage({ id: 'app_error_message_email' }));
       result = false;
     }
     return result;
   };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInputForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmitRegister = (e) => {
-    e.preventDefault();
-    const { password, confirmPassword, ...data } = inputForm;
-    if (validateUser()) {
-      dispatch(createEmployee({ password, ...data }));
-    }
-  };
   useEffect(() => {
     if (isSuccess) {
-      setInputForm({
-        fullName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      });
+      reset({ fullName: '', email: '', password: '', confirmPassword: '' });
       dispatch(setReset());
     }
-  }, [dispatch, isSuccess]);
+  }, [dispatch, isSuccess, reset]);
+
+  const onSubmit = (data) => {
+    const role = config.role.employee;
+    const { password, confirmPassword, ...rest } = data;
+    if (validateUser()) {
+      dispatch(createEmployee({ password, role, ...rest }));
+    }
+  };
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.wrapperContent}>
         <div className={classes.titleText}>
           <FormattedMessage id="app_head_title_register" />
         </div>
-        <form action="#" onSubmit={handleSubmitRegister} className={classes.form}>
-          <div className={classes.inputWrap}>
-            <div className={classes.inputTitle}>
-              <FormattedMessage id="app_title_full_name_form" />
-            </div>
-            <input
-              value={inputForm.fullName}
-              name="fullName"
-              onChange={handleChange}
-              type="text"
-              className={classes.input}
-            />
-          </div>
-          <div className={classes.inputWrap}>
-            <div className={classes.inputTitle}>
-              <FormattedMessage id="app_title_email_form" />
-            </div>
-            <input
-              value={inputForm.email}
-              name="email"
-              onChange={handleChange}
-              type="email"
-              className={classes.input}
-            />
-          </div>
-          <div className={classes.inputWrap}>
-            <div className={classes.inputTitle}>
-              <FormattedMessage id="app_title_password_form" />
-            </div>
-            <input
-              value={inputForm.password}
-              type="password"
-              name="password"
-              onChange={handleChange}
-              className={classes.input}
-            />
-          </div>
-          <div className={classes.inputWrap}>
-            <div className={classes.inputTitle}>
-              <FormattedMessage id="app_title_confirm_password_form" />
-            </div>
-            <input
-              value={inputForm.confirmPassword}
-              type="password"
-              name="confirmPassword"
-              onChange={handleChange}
-              className={classes.input}
-            />
-          </div>
+        <form action="#" onSubmit={handleSubmit(onSubmit)} className={classes.form}>
+          <InputRHF
+            register={register}
+            input={{
+              name: 'fullName',
+              required: 'Full Name is required!',
+              label: intl.formatMessage({ id: 'app_title_full_name_form' }),
+              type: 'text',
+            }}
+            errors={errors}
+            classes={{
+              inputContainer: classes.inputWrap,
+              inputLabel: classes.inputTitle,
+              input: classes.input,
+              inputLabelError: classes.errorInput,
+            }}
+          />
+          <InputRHF
+            register={register}
+            input={{
+              name: 'email',
+              required: 'Email is required!',
+              label: intl.formatMessage({ id: 'app_title_email_form' }),
+              type: 'text',
+            }}
+            errors={errors}
+            classes={{
+              inputContainer: classes.inputWrap,
+              inputLabel: classes.inputTitle,
+              input: classes.input,
+              inputLabelError: classes.errorInput,
+            }}
+          />
+          <InputRHF
+            register={register}
+            input={{
+              name: 'password',
+              required: 'Password is required!',
+              label: intl.formatMessage({ id: 'app_title_password_form' }),
+              type: 'password',
+              minLength: 8,
+              messageMin: intl.formatMessage({ id: 'app_error_message_minLenght_password' }),
+            }}
+            errors={errors}
+            classes={{
+              inputContainer: classes.inputWrap,
+              inputLabel: classes.inputTitle,
+              input: classes.input,
+              inputLabelError: classes.errorInput,
+            }}
+          />
+          <InputRHF
+            register={register}
+            input={{
+              name: 'confirmPassword',
+              required: 'Confirm Password is required!',
+              label: intl.formatMessage({ id: 'app_title_password_form' }),
+              type: 'password',
+              minLength: 8,
+              messageMin: intl.formatMessage({ id: 'app_error_message_minLenght_password' }),
+            }}
+            errors={errors}
+            classes={{
+              inputContainer: classes.inputWrap,
+              inputLabel: classes.inputTitle,
+              input: classes.input,
+              inputLabelError: classes.errorInput,
+            }}
+          />
           <div className={classes.btnWrapper}>
             <button type="button" className={classes.btn_back}>
               <Link to="/">

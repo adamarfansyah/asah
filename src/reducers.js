@@ -22,6 +22,7 @@ const temporaryReducers = {
   language: languageReducer,
   home: homeReducer,
   newsDetail: detailReducer,
+  createEmployee: createEmployeeReducer,
 };
 
 const createReducer = () => {

@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { hidePopup } from '@containers/App/actions';
 import { selectTheme, selectPopup, selectLoading } from '@containers/App/selectors';
+import { setLogin, setUser } from '@containers/Client/actions';
 
 import Loader from '@components/Loader';
 import ClientRoutes from '@components/ClientRoutes';
@@ -23,7 +24,13 @@ const App = ({ theme, popup, loading }) => {
   const closePopup = () => {
     dispatch(hidePopup());
   };
-
+  const logout = () => {
+    if (popup.ok === 'logout') {
+      dispatch(setLogin(false));
+      dispatch(setUser(null));
+      window.location.href = '/login';
+    }
+  };
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
@@ -32,7 +39,7 @@ const App = ({ theme, popup, loading }) => {
     <ThemeProvider theme={muiTheme}>
       <ClientRoutes />
       <Loader isLoading={loading} />
-      <PopupMessage open={popup.open} title={popup.title} message={popup.message} onClose={closePopup} />
+      <PopupMessage open={popup.open} title={popup.title} message={popup.message} onClose={closePopup} onOk={logout} />
     </ThemeProvider>
   );
 };
@@ -43,6 +50,7 @@ App.propTypes = {
     open: PropTypes.bool,
     title: PropTypes.string,
     message: PropTypes.string,
+    ok: PropTypes.string,
   }),
   loading: PropTypes.bool,
 };

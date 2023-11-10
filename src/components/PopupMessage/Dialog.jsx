@@ -6,7 +6,7 @@ import { Dialog } from '@mui/material';
 import classes from './style.module.scss';
 
 // eslint-disable-next-line arrow-body-style
-const PopupMessage = ({ open, title, message, onClose }) => {
+const PopupMessage = ({ open, title, message, onClose, onOk }) => {
   return (
     <Dialog open={open} onClose={onClose} PaperProps={{ className: classes.dialogWrapper }}>
       <div className={classes.title}>
@@ -15,9 +15,16 @@ const PopupMessage = ({ open, title, message, onClose }) => {
       <div className={classes.message}>
         <FormattedMessage id={message || 'app_popup_error_message'} />
       </div>
-      <button type="button" onClick={onClose} className={classes.button}>
-        <FormattedMessage id="app_popup_close_button_label" />
-      </button>
+      <div className={classes.wrapperBtn}>
+        <button type="button" onClick={onClose} className={classes.button}>
+          <FormattedMessage id="app_popup_close_button_label" />
+        </button>
+        {onOk ? (
+          <button type="button" onClick={onOk} className={classes.button}>
+            <FormattedMessage id="app_popup_ok_button_label" />
+          </button>
+        ) : null}
+      </div>
     </Dialog>
   );
 };
@@ -27,6 +34,7 @@ PopupMessage.propTypes = {
   title: PropTypes.string,
   message: PropTypes.string,
   onClose: PropTypes.func,
+  onOk: PropTypes.func,
 };
 
 export default PopupMessage;

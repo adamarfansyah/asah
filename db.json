@@ -5,11 +5,12 @@
       "fullName": "Admin",
       "email": "admin@gmail.com",
       "password": "passwordadmin",
-      "role": "admin"
+      "role": "88798679823"
     },
     {
-      "password": "asdas",
-      "fullName": "asd",
+      "password": "asdasdasd",
+      "role": "0393786336",
+      "fullName": "asdsa",
       "email": "asdasd@gmail.com",
       "id": 2
     }
@@ -71,9 +72,21 @@
     }
   ],
   "categories": [
-    { "id": 1, "category": "Sports" },
-    { "id": 2, "category": "E-Sports" },
-    { "id": 3, "category": "Politics" },
-    { "id": 4, "category": "Software Developments" }
+    {
+      "id": 1,
+      "category": "Sports"
+    },
+    {
+      "id": 2,
+      "category": "E-Sports"
+    },
+    {
+      "id": 3,
+      "category": "Politics"
+    },
+    {
+      "id": 4,
+      "category": "Software Developments"
+    }
   ]
 }

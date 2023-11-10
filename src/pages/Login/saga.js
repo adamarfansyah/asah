@@ -23,12 +23,12 @@ export function* doLogin({ data }) {
       window.location.href = '/';
     } else {
       toast.error('Invalid credential');
-      return;
     }
   } catch (error) {
     toast.error('Login error', error.message);
+  } finally {
+    yield put(setLoading(false));
   }
-  yield put(setLoading(false));
 }
 
 export function* loginSaga() {

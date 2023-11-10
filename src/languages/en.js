@@ -2,11 +2,16 @@ export default {
   app_popup_error_title: 'Something went wrong!',
   app_popup_error_message: 'Sorry, an error has occurred. Please try again later',
   app_popup_close_button_label: 'Close',
+  app_popup_ok_button_label: 'Ok',
   app_title_home: 'Welcome',
   app_title_sign_in: 'Welcome Back',
   app_lang_id: 'Bahasa',
   app_lang_en: 'English',
+  app_popup_logout_title: 'Are you sure you want to log out?',
+  app_popup_logout_message: 'If you log out, you have to log back in again!',
+  app_error_message_email: 'Please enter a valid email',
 
+  app_error_message_minLenght_password: 'Minimum password length is 8 letters',
   app_header_home: 'Find news, thoughts and expertise from writers on any topic.',
   app_new_news: 'Latest news from us',
   app_head_categories: 'Discover more of what matters to you',
@@ -19,7 +24,7 @@ export default {
   app_sub_title_login:
     "Enter the email address and password associated with your account, and we'll send a magic link to your inbox.",
   app_title_button_confirm_login_register: 'Continue',
-  app_title_button_back_to_home: 'Back To Home',
+  app_title_button_back_to_home: 'Back ',
 
   app_back_button: 'Back',
   app_head_title_form_news_add: 'Add News to Page',
