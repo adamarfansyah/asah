@@ -11,8 +11,13 @@ export default {
   app_new_news: 'Berita terbaru dari kami',
   app_head_categories: 'Temukan lebih banyak hal yang penting bagi Anda',
   app_head_title_login: 'Masuk',
-  app_title_email_form_login: 'Email Kamu',
-  app_title_password_form_login: 'Kata Sandi Kamu',
+  app_head_title_register: 'Mendaftarkan Karyawan',
+  app_title_email_form: 'Email Anda',
+  app_title_full_name_form: 'Nama lengkap',
+  app_title_password_form: 'Kata Sandi Anda',
+  app_title_confirm_password_form: 'Konfirmasi Kata Sandi Anda',
   app_sub_title_login:
     'Masukkan alamat email dan password yang terkait dengan akun Anda, dan kami akan mengirimkan tautan ajaib ke kotak masuk Anda.',
+  app_title_button_confirm_login_register: 'Lanjutkan',
+  app_title_button_back_to_home: 'Kembali Ke Beranda',
 };

@@ -2,9 +2,16 @@
   "user": [
     {
       "id": 1,
-      "fullName": "user full",
-      "email": "user@gmail.com",
-      "password": "password"
+      "fullName": "Admin",
+      "email": "admin@gmail.com",
+      "password": "passwordadmin",
+      "role": "admin"
+    },
+    {
+      "password": "asdas",
+      "fullName": "asd",
+      "email": "asdasd@gmail.com",
+      "id": 2
     }
   ],
   "news": [

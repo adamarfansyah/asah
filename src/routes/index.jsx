@@ -4,6 +4,7 @@ import DetailNews from '@pages/DetailNews';
 import Home from '@pages/Home';
 import NotFound from '@pages/NotFound';
 import Login from '@pages/Login';
+import CreateEmployee from '@pages/CreateEmployee';
 
 const routes = [
   {
@@ -25,6 +26,14 @@ const routes = [
     name: 'Login',
     protected: false,
     component: Login,
+    layout: MainLayout,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    protected: true,
+    component: CreateEmployee,
+    layout: MainLayout,
   },
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
 ];

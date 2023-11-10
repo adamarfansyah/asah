@@ -6,11 +6,14 @@ import homeReducer from '@pages/Home/reducer';
 import detailReducer from '@pages/DetailNews/reducer';
 import languageReducer from '@containers/Language/reducer';
 
+import createEmployeeReducer from '@pages/CreateEmployee/reducer';
+
 import { mapWithPersistor } from './persistence';
 
 const storedReducers = {
   app: { reducer: appReducer, whitelist: storedAppState },
   client: { reducer: clientReducer, whitelist: storedClientState },
+  createEmployee: { reducer: createEmployeeReducer },
 };
 
 const temporaryReducers = {
